@@ -1,0 +1,27 @@
+---
+- name: Playbook for  install  Kasper
+  hosts: all
+  become: yes
+  vars_files:
+    - /home/alex/Ansible/vault.yml
+  tasks:
+    - name: Копирование KESL на  удаленный хост
+      copy:
+        src: /home/semaphore/kesl-gui_12.1.0-1508.sh
+        dest: /home/slpkadmin
+    - name: Копирование klnagent.sh  на  удаленный хост
+      copy:
+         src: /home/semaphore//klnagent64-15.1.0-20748.x86_64.sh
+         dest: /home/slpkadmin
+    - name: Установить права доступа к файлу
+      file:
+        path: /home/slpkadmin/klnagent64-15.1.0-20748.x86_64.sh
+        mode: '0777'
+    - name: Установить права доступа к файлу
+      file:
+        path: /home/slpkadmin/kesl-gui_12.1.0-1508.sh 
+        mode: '0777'
+    - name: Запуск скрипта klnagent
+      shell: /home/slpkadmin/klnagent64-15.1.0-20748.x86_64.sh
+    - name: Запуск скрипта Kesl
+      shell: /home/slpkadmin/kesl-gui_12.1.0-1508.sh
