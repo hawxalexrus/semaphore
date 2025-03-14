@@ -19,7 +19,7 @@
       file:
         path: /home/slpkadmin/kesl-gui_12.1.0-1508.sh 
         mode: '0777'
-    - name: Запуск скрипта klnagent
-      shell: /home/slpkadmin/klnagent64-15.1.0-20748.x86_64.sh
+   # - name: Запуск скрипта klnagent
+    #  shell: /home/slpkadmin/klnagent64-15.1.0-20748.x86_64.sh
     - name: Запуск скрипта Kesl
       shell: /home/slpkadmin/kesl-gui_12.1.0-1508.sh
